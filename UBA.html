@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal Interface</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="terminal" id="terminal">
+        <div class="output" id="output">
+            <!-- Data output will appear here -->
+        </div>
+        <div class="input-line">
+            <div class="prompt">$</div>
+            <div contenteditable="true" class="cmdline" id="cmdline"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cmdline = document.getElementById('cmdline');
+            const output = document.getElementById('output');
+
+            cmdline.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    const command = this.innerText.trim();
+                    if (command) {
+                        outputCommand(command);
+                        this.innerHTML = ''; // Clear the command line (use innerHTML to clear breaks)
+                    }
+                }
+            });
+
+            function outputCommand(command) {
+                const pre = document.createElement('pre');
+                pre.textContent = `$ ${command}`;
+                output.appendChild(pre);
+                output.scrollTop = output.scrollHeight; // Auto-scroll to the latest output
+            }
+        });
+    </script>
+</body>
+</html>
+

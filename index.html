@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGA Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="dashboard-title">CGA Dashboard</h1>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </header>
+    <main class="dashboard">
+        <a href="https://3.136.181.230/login" class="dashboard-item" id="vpnServer">
+            <h2>VPN Server</h2>
+        </a>
+        <a href="https://10.0.1.220:8200/ui/vault" class="dashboard-item" id="vaultServer">
+            <h2>Vault Server</h2>
+        </a>
+        <a href="UBA.html"class="dashboard-item" id="ubaDashboard">
+            <h2>UBA Dashboard</h2>
+        </a>
+    </main>
+    <script>
+        // Check for the key in local storage on page load
+        window.onload = function() {
+            if(!localStorage.getItem('userKey')) {
+                // Redirect to login page if key not found
+                window.location.href = 'login.html';
+            }
+        };
+
+        // Logout functionality
+        document.getElementById('logoutButton').addEventListener('click', function() {
+            localStorage.removeItem('userKey'); // Remove the key from local storage
+            window.location.href = 'login.html'; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

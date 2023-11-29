@@ -1,0 +1,22 @@
+
+document.getElementById('vpnButton').addEventListener('click', function() {
+    window.location.href = 'https://3.136.181.230/login';
+});
+
+
+// 
+document.getElementById('vaultButton').addEventListener('click', function() {
+    document.getElementById('dashboardIframe').src = 'your_vault_server_url';
+});
+
+// ... existing whitelist code ...
+
+
+document.getElementById('whitelistButton').addEventListener('click', function() {
+    const ip = document.getElementById('ipInput').value;
+    console.log("Whitelist IP: " + ip);
+    // Here, you'll need to add the code to interact with your server for AWS IP whitelisting.
+});
+document.getElementById('pritunlButton').addEventListener('click', function() {
+    window.location.href = 'https://www.google.com';
+});

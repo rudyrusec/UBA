@@ -1,0 +1,67 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, button {
+    font-family: 'Arial', sans-serif;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.dashboard-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.dashboard-item {
+    width: 30%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .dashboard-item {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+.dashboard-item {
+    /* existing styles */
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Keeps the text color consistent with the rest of the design */
+}
+
+.dashboard-item:hover {
+    background-color: #e8e8e8; /* Optional: Changes background on hover for visual feedback */
+}

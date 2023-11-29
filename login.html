@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" id="loginForm">
+            <h1 class="form-title">Login</h1>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if(username === 'admin' && password === 'admin') {
+                localStorage.setItem('userKey', 'someValue'); // Store key in local storage
+                //alert('Login successful!'); // Optional: Alert the user
+                // Redirect to another page or perform other actions
+                window.location.href = 'index.html';
+
+            } else {
+                alert('Invalid username or password'); // Optional: Alert the user
+                // Handle invalid login
+            }
+        });
+    </script>
+</body>
+</html>
